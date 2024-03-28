@@ -6,9 +6,6 @@ RUN apt-get update && apt-get install -y cmake
 # Set working directory in the container
 WORKDIR /app
 
-# Copy requirements.txt and install dependencies
-COPY requirements.txt .
-
 RUN pip install --upgrade pip setuptools
 
 RUN pip install cython==0.29.7
