@@ -11,12 +11,6 @@ import os
 from . import utils
 
 print("Current Working Directory:", os.getcwd())
-print(os.path.join(utils.MODEL_DIR, "facets.npy"))
-
-try:
-    self.facets = np.load(open(os.path.join(utils.MODEL_DIR, "facets.npy"), "rb"))
-except FileNotFoundError:
-    print("Error: 'facets.npy' file not found in directory:", utils.MODEL_DIR)
 
 # A Reshaper provide multiple methods for synthesizing body mesh
 class Reshaper:
