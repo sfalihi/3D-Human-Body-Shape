@@ -10,8 +10,10 @@ import sys
 import os
 from . import utils
 
+print(os.path.join(utils.MODEL_DIR, "facets.npy"))
+
 try:
-    self.facets = np.load(open(os.path.join(MODEL_DIR, "facets.npy"), "rb"))
+    self.facets = np.load(open(os.path.join(utils.MODEL_DIR, "facets.npy"), "rb"))
 except FileNotFoundError:
     print("Error: 'facets.npy' file not found in directory:", MODEL_DIR)
 
