@@ -10,8 +10,8 @@ sys.path.append(root_dir)
 
 import numpy as np
 import sys
-from src.maya_widget import MayaviQWidget  # Adjusted import statement
-from src import utils  # Adjusted import statement
+from maya_widget import MayaviQWidget  # Adjusted import statement
+import utils  # Adjusted import statement
 import uuid
 
 from flask import Flask, request, jsonify, send_file
