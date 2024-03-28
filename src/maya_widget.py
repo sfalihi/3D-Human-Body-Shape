@@ -88,7 +88,7 @@ class MayaviQWidget():
     [self.vertices, self.normals, self.facets] = \
         self.body.mapping(self.input_data, self.flag_)
     self.vertices = self.vertices.astype('float32')
-    self.visualization.update_plot(self.vertices, self.facets)
+    # self.visualization.update_plot(self.vertices, self.facets)
 
   def select_mode(self, label="female", flag=0):
     self.body = self.bodies[label]
