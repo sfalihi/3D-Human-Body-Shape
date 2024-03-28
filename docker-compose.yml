@@ -15,5 +15,6 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - CUDACXX=/usr/local/cuda/bin/nvcc
+      - LD_LIBRARY_PATH=/usr/local/cuda/lib64
       # FLASK_ENV: development
 
