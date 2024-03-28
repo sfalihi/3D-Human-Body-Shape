@@ -3,7 +3,7 @@ import numpy as np
 import os
 import time
 from . import utils
-from reshaper import Reshaper
+from .reshaper import Reshaper
 from openpyxl import Workbook
 from openpyxl import load_workbook
 from multiprocessing import Pool, Process
