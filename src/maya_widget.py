@@ -10,7 +10,7 @@ import numpy as np
 import time
 import os
 from .reshaper import Reshaper
-import utils
+from . import utils
 os.environ['ETS_TOOLKIT'] = 'qt4'
 
 
