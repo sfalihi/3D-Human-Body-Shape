@@ -39,5 +39,5 @@ COPY . .
 EXPOSE 8080
 
 # Specify the command to run your application
-CMD ["python", "./server.py"]
+CMD ["python", "./src/server.py"]
 
