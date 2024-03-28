@@ -54,7 +54,7 @@ def predict(gender, dataList):
             print("%s: %f" % (utils.M_STR[i], output[i, 0]))
             resArr.append({ "name" : utils.M_STR[i], "value": output[i, 0] / 10 })
     else:
-        # Handle the case when output is None
+        pass
     
     return jsonify({ "data" : resArr, "hash": hash })
 
