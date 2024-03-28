@@ -5,7 +5,7 @@
 # from traits.api import HasTraits, Instance, on_trait_change
 # from traitsui.api import View, Item
 # from mayavi import mlab
-from PyQt5 import QtWidgets, QtCore
+# from PyQt5 import QtWidgets, QtCore
 import numpy as np
 import time
 import os
@@ -17,27 +17,27 @@ os.environ['ETS_TOOLKIT'] = 'qt4'
 # A QSlider with its own ID, used to determine which PC it corresponds to
 # Customized signal. Agment original valueChanged(int) with sliderID, and
 # the min, max values of the slider
-class IndexedQSlider(QtWidgets.QSlider):
-  valueChangeForwarded = QtCore.pyqtSignal(int, int, int, int)
-  def __init__(self, sliderID, orientation, parent=None):
-    QtWidgets.QSlider.__init__(self, orientation, parent)
-    self.sliderID = sliderID
-    self.valueChanged.connect(self.valueChangeForwarder)
+# class IndexedQSlider(QtWidgets.QSlider):
+#   valueChangeForwarded = QtCore.pyqtSignal(int, int, int, int)
+#   def __init__(self, sliderID, orientation, parent=None):
+#     QtWidgets.QSlider.__init__(self, orientation, parent)
+#     self.sliderID = sliderID
+#     self.valueChanged.connect(self.valueChangeForwarder)
 
-  ''' Emit coustomized valuechanged sigmal '''
-  def valueChangeForwarder(self, val):
-    self.valueChangeForwarded.emit(
-      self.sliderID, val, self.minimum(), self.maximum())
+#   ''' Emit coustomized valuechanged sigmal '''
+#   def valueChangeForwarder(self, val):
+#     self.valueChangeForwarded.emit(
+#       self.sliderID, val, self.minimum(), self.maximum())
 
-class myAction(QtWidgets.QAction):
-  myact = QtCore.pyqtSignal(int)
-  def __init__(self, _id, *args):
-    QtWidgets.QAction.__init__(self, *args)
-    self._id = _id
-    self.triggered.connect(self.emitSelect)
+# class myAction(QtWidgets.QAction):
+#   myact = QtCore.pyqtSignal(int)
+#   def __init__(self, _id, *args):
+#     QtWidgets.QAction.__init__(self, *args)
+#     self._id = _id
+#     self.triggered.connect(self.emitSelect)
 
-  def emitSelect(self):
-    self.myact.emit(self._id)
+#   def emitSelect(self):
+#     self.myact.emit(self._id)
 
 # class Visualization(HasTraits):
 #   scene = Instance(MlabSceneModel, ())
