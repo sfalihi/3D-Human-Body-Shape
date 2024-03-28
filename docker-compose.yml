@@ -10,5 +10,6 @@ services:
       - "8080:8080"
     volumes:
       - ./src:/app/src
+      - ./.tmp:/app/.tmp
     # environment:
       # FLASK_ENV: development
