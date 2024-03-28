@@ -35,9 +35,12 @@ RUN apt-get update && apt-get install -y \
 # Copy the entire project directory into the container
 COPY . .
 
+# Set working directory to /app/src
+WORKDIR /app/src
+
 # Expose any necessary ports (adjust if needed)
 EXPOSE 8080
 
 # Specify the command to run your application
-CMD ["python", "./src/server.py"]
+CMD ["python", "server.py"]
 
