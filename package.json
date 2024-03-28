@@ -1,0 +1,14 @@
+{
+  "name": "3d_human_body_shape",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "log": "sudo docker service logs body_app_web",
+    "deploy": "sudo docker stack deploy -c docker-compose.yml body_app",
+    "rm": "sudo docker stack rm body_app"
+  },
+  "author": "",
+  "license": "ISC",
+}
