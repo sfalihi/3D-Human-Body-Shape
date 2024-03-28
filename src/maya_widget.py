@@ -52,7 +52,7 @@ class myAction(QtWidgets.QAction):
 
 # The QWidget for rendering 3D shape
 class MayaviQWidget(QtWidgets.QWidget):
-  def __init__(self, parent):
+  def __init__(self, gender, parent):
     QtWidgets.QWidget.__init__(self, parent)
     layout = QtWidgets.QVBoxLayout(self)
     layout.setContentsMargins(0, 0, 0, 0)
@@ -66,7 +66,14 @@ class MayaviQWidget(QtWidgets.QWidget):
 
     # models for shape representing
     self.bodies = {"female": Reshaper(label="female"), "male":Reshaper(label="male")}
-    self.body = self.bodies["female"]
+
+    if gender == "female":
+            self.body = self.bodies["female"]
+        elif gender == "male":
+            self.body = self.bodies["male"]
+        else:
+            raise ValueError("Invalid gender argument. Must be 'female' or 'male'.")
+    
     self.flag_ = 0
 
     self.vertices = self.body.mean_vertex
