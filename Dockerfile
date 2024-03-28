@@ -1,5 +1,5 @@
 # Use a base image with Python installed
-FROM python:3.5
+FROM python:3.6
 
 RUN apt-get update && apt-get install -y cmake
 
