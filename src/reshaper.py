@@ -10,6 +10,7 @@ import sys
 import os
 from . import utils
 
+print("Current Working Directory:", os.getcwd())
 print(os.path.join(utils.MODEL_DIR, "facets.npy"))
 
 try:
