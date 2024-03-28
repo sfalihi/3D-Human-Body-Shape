@@ -5,7 +5,7 @@ import sys
 import os.path
 
 # Add the root directory to the Python path
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..")) + '/src/'
 sys.path.append(root_dir)
 
 import numpy as np
