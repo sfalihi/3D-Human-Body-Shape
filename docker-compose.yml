@@ -10,6 +10,6 @@ services:
       - "8080:8080"
     volumes:
       - ./server.py:/app/server.py
-      # - ./src:/app/src
+      - ./src:/app/src
     # environment:
       # FLASK_ENV: development
