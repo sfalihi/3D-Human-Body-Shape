@@ -68,11 +68,11 @@ class MayaviQWidget(QtWidgets.QWidget):
     self.bodies = {"female": Reshaper(label="female"), "male":Reshaper(label="male")}
 
     if gender == "female":
-            self.body = self.bodies["female"]
-        elif gender == "male":
-            self.body = self.bodies["male"]
-        else:
-            raise ValueError("Invalid gender argument. Must be 'female' or 'male'.")
+        self.body = self.bodies["female"]
+    elif gender == "male":
+        self.body = self.bodies["male"]
+    else:
+        raise ValueError("Invalid gender argument. Must be 'female' or 'male'.")
     
     self.flag_ = 0
 
