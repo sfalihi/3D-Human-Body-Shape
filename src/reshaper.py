@@ -8,7 +8,7 @@ import scipy.sparse
 import scipy.sparse.linalg
 import sys
 import os
-import utils
+import .utils
 
 # A Reshaper provide multiple methods for synthesizing body mesh
 class Reshaper:
