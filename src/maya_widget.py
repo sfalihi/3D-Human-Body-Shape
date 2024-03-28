@@ -102,8 +102,8 @@ class MayaviQWidget():
     self.update()
     print(' [**] update body in %f s' % (time.time() - start))
 
-  async def save(self, filename):
-    await utils.save_obj("../.tmp/" + filename + ".obj", self.vertices, self.facets+1)
+  def save(self, filename):
+    utils.save_obj("../.tmp/" + filename + ".obj", self.vertices, self.facets+1)
     output = np.array(utils.calc_measure(self.body.cp, self.vertices, self.facets))
     for i in range(0, utils.M_NUM):
       print("%s: %f" % (utils.M_STR[i], output[i, 0]))
