@@ -14,7 +14,7 @@ import json
 import sys
 import time
 import os
-import utils
+from . import utils
 
 DATA_DIR = "../data"
 
