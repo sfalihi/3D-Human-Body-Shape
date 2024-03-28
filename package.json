@@ -10,5 +10,5 @@
     "rm": "sudo docker stack rm body_app"
   },
   "author": "",
-  "license": "ISC",
+  "license": "ISC"
 }
