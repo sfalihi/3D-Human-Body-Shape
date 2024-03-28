@@ -53,10 +53,10 @@ class myAction(QtWidgets.QAction):
 # The QWidget for rendering 3D shape
 class MayaviQWidget(QtWidgets.QWidget):
   def __init__(self, gender, parent):
-    QtWidgets.QWidget.__init__(self, parent)
-    layout = QtWidgets.QVBoxLayout(self)
-    layout.setContentsMargins(0, 0, 0, 0)
-    layout.setSpacing(0)
+    # QtWidgets.QWidget.__init__(self, parent)
+    # layout = QtWidgets.QVBoxLayout(self)
+    # layout.setContentsMargins(0, 0, 0, 0)
+    # layout.setSpacing(0)
     # self.visualization = Visualization()
 
     # The edit_traits call will generate the widget to embed.
