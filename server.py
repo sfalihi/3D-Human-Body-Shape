@@ -59,7 +59,7 @@ def scan():
 def model():
     hash = request.args.get('hash')
     print({ "hash": hash })
-    return send_file(os.path.join(root_dir, '.tmp', f'{hash}.obj'), mimetype='model/obj')
+    return send_file(os.path.join(root_dir, '.tmp', hash + '.obj'), mimetype='model/obj')
 
 if __name__ == "__main__":
     from waitress import serve
