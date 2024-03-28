@@ -25,12 +25,14 @@ RUN pip install pyopengl==3.1.0
 RUN pip install pyqt5==5.10.1
 RUN pip install scikit-learn==0.21.3
 
+RUN pip install flask
+
 # Copy the entire project directory into the container
 COPY . .
 
 # Expose any necessary ports (adjust if needed)
-EXPOSE 5000
+EXPOSE 8080
 
 # Specify the command to run your application
-CMD ["python", "./src/demo.py"]
+CMD ["python", "./server.py"]
 
