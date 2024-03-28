@@ -4,6 +4,11 @@
 import sys
 import os.path
 
+from PyQt5.QtWidgets import QApplication
+# Initialize a QApplication object
+app = QApplication(sys.argv)
+
+
 # Add the root directory to the Python path
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..")) + '/src/'
 sys.path.append(root_dir)
