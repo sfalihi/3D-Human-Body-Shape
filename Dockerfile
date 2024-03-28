@@ -22,6 +22,9 @@ RUN pip install pyopengl==3.1.0
 RUN pip install pyqt5==5.10.1
 RUN pip install scikit-learn==0.21.3
 
+# Install Keras compatible with Python 3.5
+RUN pip install keras==2.2.5
+
 RUN pip install flask
 
 # Install necessary system packages
