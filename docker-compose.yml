@@ -11,5 +11,9 @@ services:
     volumes:
       - ./src:/app/src
       - ./.tmp:/app/.tmp
-    # environment:
+      - /usr/local/cuda:/usr/local/cuda
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - CUDACXX=/usr/local/cuda/bin/nvcc
       # FLASK_ENV: development
+
