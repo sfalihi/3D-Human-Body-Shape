@@ -8,7 +8,7 @@ import scipy.sparse
 import scipy.sparse.linalg
 import sys
 import os
-from . import utils
+import utils
 
 print("Current Working Directory:", os.getcwd())
 
