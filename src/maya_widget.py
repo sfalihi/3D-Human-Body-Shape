@@ -2,8 +2,8 @@
 # environment variable to qt4, to tell Traits that we will use Qt.
 
 # from mayavi.core.ui.api import MayaviScene, MlabSceneModel, SceneEditor
-from traits.api import HasTraits, Instance, on_trait_change
-from traitsui.api import View, Item
+# from traits.api import HasTraits, Instance, on_trait_change
+# from traitsui.api import View, Item
 # from mayavi import mlab
 from PyQt5 import QtWidgets, QtCore
 import numpy as np
