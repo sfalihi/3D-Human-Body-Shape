@@ -15,7 +15,7 @@ RUN pip install openpyxl==2.6.2
 RUN pip install ecos==2.0.7.post1
 RUN pip install vtk==8.1.2
 RUN pip install traits==5.1.1
-RUN pip install cvxpy==1.0.28
+RUN pip install cvxpy==1.1.24
 RUN pip install fancyimpute==0.3.2
 #RUN pip install mayavi==4.7.1
 RUN pip install pyopengl==3.1.0
