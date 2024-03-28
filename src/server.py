@@ -48,6 +48,8 @@ def predict(gender, dataList):
     hash = uuid.uuid4().hex
     output = viewer3D.save(hash)
     resArr = []
+
+    print("data ready...")
     
     if output is not None:
         for i in range(0, utils.M_NUM):
