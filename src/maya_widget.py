@@ -107,6 +107,7 @@ class MayaviQWidget():
     output = np.array(utils.calc_measure(self.body.cp, self.vertices, self.facets))
     for i in range(0, utils.M_NUM):
       print("%s: %f" % (utils.M_STR[i], output[i, 0]))
+    return output
 
   def predict(self, data):
     mask = np.zeros((utils.M_NUM, 1), dtype=bool)
