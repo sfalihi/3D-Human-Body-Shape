@@ -2,7 +2,7 @@
 import numpy as np
 import os
 import time
-import utils
+from . import utils
 from reshaper import Reshaper
 from openpyxl import Workbook
 from openpyxl import load_workbook
