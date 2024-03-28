@@ -11,7 +11,7 @@ services:
     volumes:
       - ./src:/app/src
       - ./.tmp:/app/.tmp
-      - /usr/local/cuda:/usr/local/cuda
+      - /usr/local/cuda/lib64/libcudart.so.12:/usr/local/cuda/lib64/libcudart.so.10.1
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - CUDACXX=/usr/local/cuda/bin/nvcc
