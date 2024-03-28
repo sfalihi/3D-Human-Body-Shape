@@ -6,8 +6,8 @@ import sys
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QLineEdit, QApplication as qApp
-from maya_widget import MayaviQWidget, myAction, IndexedQSlider
-import utils
+from .maya_widget import MayaviQWidget, myAction, IndexedQSlider
+from . import utils
 
 # usage: GUI for showing all models
 class HumanShapeAnalysisDemo(QtWidgets.QMainWindow):
