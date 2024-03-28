@@ -53,6 +53,7 @@ class myAction(QtWidgets.QAction):
 # The QWidget for rendering 3D shape
 class MayaviQWidget(QtWidgets.QWidget):
   def __init__(self, gender):
+    super().__init__() 
     # QtWidgets.QWidget.__init__(self, parent)
     # layout = QtWidgets.QVBoxLayout(self)
     # layout.setContentsMargins(0, 0, 0, 0)
