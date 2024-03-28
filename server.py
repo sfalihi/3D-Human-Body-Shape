@@ -17,8 +17,8 @@ import uuid
 from flask import Flask, request, jsonify, send_file
 app = Flask(__name__)
 
-viewer3D_MALE = MayaviQWidget(1)
-viewer3D_FEMALE = MayaviQWidget(0)
+viewer3D_MALE = MayaviQWidget("male")
+viewer3D_FEMALE = MayaviQWidget("female")
 
 def predict(gender, dataList):
     print({ "gender": gender, "weight": dataList[0], "height": dataList[1] })
