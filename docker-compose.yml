@@ -11,5 +11,5 @@ services:
     volumes:
       - ./server.py:/app/server.py
       # - ./src:/app/src
-    environment:
+    # environment:
       # FLASK_ENV: development
