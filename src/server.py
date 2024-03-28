@@ -48,9 +48,14 @@ def predict(gender, dataList):
     hash = uuid.uuid4().hex
     output = viewer3D.save(hash)
     resArr = []
-    for i in range(0, utils.M_NUM):
-        # print("%s: %f" % (utils.M_STR[i], output[i, 0]))
-        resArr.append({ "name" : utils.M_STR[i], "value": output[i, 0] / 10 })
+    
+    if output is not None:
+        for i in range(0, utils.M_NUM):
+            print("%s: %f" % (utils.M_STR[i], output[i, 0]))
+            resArr.append({ "name" : utils.M_STR[i], "value": output[i, 0] / 10 })
+    else:
+        # Handle the case when output is None
+    
     return jsonify({ "data" : resArr, "hash": hash })
 
 @app.route('/scan')
