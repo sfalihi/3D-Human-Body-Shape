@@ -1,10 +1,10 @@
 # First, and before importing any Enthought packages, set the ETS_TOOLKIT
 # environment variable to qt4, to tell Traits that we will use Qt.
 
-from mayavi.core.ui.api import MayaviScene, MlabSceneModel, SceneEditor
+# from mayavi.core.ui.api import MayaviScene, MlabSceneModel, SceneEditor
 from traits.api import HasTraits, Instance, on_trait_change
 from traitsui.api import View, Item
-from mayavi import mlab
+# from mayavi import mlab
 from PyQt5 import QtWidgets, QtCore
 import numpy as np
 import time
@@ -39,16 +39,16 @@ class myAction(QtWidgets.QAction):
   def emitSelect(self):
     self.myact.emit(self._id)
 
-class Visualization(HasTraits):
-  scene = Instance(MlabSceneModel, ())
-  @on_trait_change('scene.activated')
-  def update_plot(self, v, f):
-    mlab.clf()
-    if not isinstance(v, str):
-      mlab.triangular_mesh(v[:, 0], v[:, 1], v[:, 2], f)
-  # the layout of the dialog screated
-  view = View(Item('scene', editor=SceneEditor(scene_class=MayaviScene),
-    height=200, width=250, show_label=False), resizable=True)
+# class Visualization(HasTraits):
+#   scene = Instance(MlabSceneModel, ())
+#   @on_trait_change('scene.activated')
+#   def update_plot(self, v, f):
+#     mlab.clf()
+#     if not isinstance(v, str):
+#       mlab.triangular_mesh(v[:, 0], v[:, 1], v[:, 2], f)
+#   # the layout of the dialog screated
+#   view = View(Item('scene', editor=SceneEditor(scene_class=MayaviScene),
+#     height=200, width=250, show_label=False), resizable=True)
 
 # The QWidget for rendering 3D shape
 class MayaviQWidget(QtWidgets.QWidget):
@@ -57,12 +57,12 @@ class MayaviQWidget(QtWidgets.QWidget):
     layout = QtWidgets.QVBoxLayout(self)
     layout.setContentsMargins(0, 0, 0, 0)
     layout.setSpacing(0)
-    self.visualization = Visualization()
+    # self.visualization = Visualization()
 
     # The edit_traits call will generate the widget to embed.
-    self.ui = self.visualization.edit_traits(parent=self, kind='subpanel').control
-    layout.addWidget(self.ui)
-    self.ui.setParent(self)
+    # self.ui = self.visualization.edit_traits(parent=self, kind='subpanel').control
+    # layout.addWidget(self.ui)
+    # self.ui.setParent(self)
 
     # models for shape representing
     self.bodies = {"female": Reshaper(label="female"), "male":Reshaper(label="male")}
