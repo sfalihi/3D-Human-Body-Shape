@@ -49,7 +49,7 @@ def predict(gender, dataList):
     output = viewer3D.save(hash)
     resArr = []
     for i in range(0, utils.M_NUM):
-        print("%s: %f" % (utils.M_STR[i], output[i, 0]))
+        # print("%s: %f" % (utils.M_STR[i], output[i, 0]))
         resArr.append({ "name" : utils.M_STR[i], "value": output[i, 0] / 10 })
     return jsonify({ "data" : resArr, "hash": hash })
 
