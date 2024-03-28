@@ -26,12 +26,8 @@ RUN pip install scikit-learn==0.21.3
 RUN pip install keras==2.2.5
 
 RUN pip install flask
+RUN pip install waitress
 
-# Install necessary system packages
-# RUN apt-get update && apt-get install -y \
-#     libgl1-mesa-glx \
-#     && rm -rf /var/lib/apt/lists/*
-    
 # Copy the entire project directory into the container
 COPY . .
 
