@@ -51,7 +51,8 @@ os.environ['ETS_TOOLKIT'] = 'qt4'
 #     height=200, width=250, show_label=False), resizable=True)
 
 # The QWidget for rendering 3D shape
-class MayaviQWidget(QtWidgets.QWidget):
+# class MayaviQWidget(QtWidgets.QWidget):
+class MayaviQWidget():
   def __init__(self, gender):
     super().__init__() 
     # QtWidgets.QWidget.__init__(self, parent)
