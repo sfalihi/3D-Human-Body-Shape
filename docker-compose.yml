@@ -2,12 +2,14 @@ version: '3.8'
 
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: 3d_human_body_shape:1
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     ports:
       - "8080:8080"
     volumes:
-      - ./src:/app/src  # Mount your src directory to /app/src in the container
+      - ./server.py:/app/server.py
+      # - ./src:/app/src
     environment:
-      FLASK_ENV: development  # Set Flask environment to development
+      # FLASK_ENV: development
