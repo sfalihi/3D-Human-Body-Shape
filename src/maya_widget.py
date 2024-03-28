@@ -9,7 +9,7 @@ from PyQt5 import QtWidgets, QtCore
 import numpy as np
 import time
 import os
-from reshaper import Reshaper
+from .reshaper import Reshaper
 import utils
 os.environ['ETS_TOOLKIT'] = 'qt4'
 
