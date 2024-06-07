@@ -3,7 +3,7 @@
 
 import sys
 import os.path
-
+import json
 # from PyQt5.QtWidgets import QApplication
 # Initialize a QApplication object
 # app = QApplication(sys.argv)
@@ -61,11 +61,24 @@ def predict(gender, dataList):
     return jsonify({ "data" : resArr, "hash": hash })
 
 @app.route('/scan')
+
+#  data_list = ["weight", "height", "neck", "chest",
+#   "belly button waist", "gluteal hip",
+#   "neck shoulder elbow wrist", "crotch knee floor",
+#   "across back shoulder neck", "neck to gluteal hip",
+#   "natural waist", "max. hip", "natural waist rise",
+#   "shoulder to midhand", "upper arm", "wrist",
+#   "outer natural waist to floor", "knee", "max. thigh"]
+
 def scan():
-    gender = float(request.args.get('g'))
-    weight = float(request.args.get('w'))
-    height = float(request.args.get('h'))
-    return predict(gender, [weight,height])
+    try:
+        gender = float(request.args.get('g'))
+        data_list = json.loads(request.args.get('ls'))
+    except (TypeError, ValueError, json.JSONDecodeError) as e:
+        return jsonify({'error': str(e)}), 400
+    
+    prediction = predict(gender, data_list)
+    return jsonify(prediction)
 
 @app.route('/model')
 def model():
