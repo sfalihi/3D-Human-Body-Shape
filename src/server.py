@@ -78,7 +78,7 @@ def scan():
         return jsonify({'error': str(e)}), 400
     
     prediction = predict(gender, data_list)
-    return jsonify(prediction)
+    return prediction
 
 @app.route('/model')
 def model():
