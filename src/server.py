@@ -23,7 +23,10 @@ import uuid
 # from flask_limiter.util import get_remote_address
 
 from flask import Flask, request, jsonify, send_file
+from flask_cors import CORS, cross_origin
+
 app = Flask(__name__)
+CORS(app, support_credentials=True)
 
 # Configure Flask-Limiter
 # limiter = Limiter(
@@ -70,7 +73,7 @@ def predict(gender, dataList):
     
     return jsonify({ "data" : resArr, "hash": hash })
 
-@app.route('/scan')
+
 
 #  data_list = ["weight", "height", "neck", "chest",
 #   "belly button waist", "gluteal hip",
@@ -80,6 +83,8 @@ def predict(gender, dataList):
 #   "shoulder to midhand", "upper arm", "wrist",
 #   "outer natural waist to floor", "knee", "max. thigh"]
 
+@app.route('/scan')
+@cross_origin(supports_credentials=True)
 def scan():
     try:
         gender = float(request.args.get('g'))
@@ -91,6 +96,7 @@ def scan():
     return prediction
 
 @app.route('/model')
+@cross_origin(supports_credentials=True)
 def model():
     hash = request.args.get('hash')
     print({ "hash": hash })
