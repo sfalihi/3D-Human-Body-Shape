@@ -23,10 +23,10 @@ import uuid
 # from flask_limiter.util import get_remote_address
 
 from flask import Flask, request, jsonify, send_file
-from flask_cors import CORS, cross_origin
+# from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-CORS(app, support_credentials=True)
+# CORS(app, support_credentials=True)
 
 # Configure Flask-Limiter
 # limiter = Limiter(
@@ -84,7 +84,7 @@ def predict(gender, dataList):
 #   "outer natural waist to floor", "knee", "max. thigh"]
 
 @app.route('/scan')
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 def scan():
     try:
         gender = float(request.args.get('g'))
@@ -96,11 +96,18 @@ def scan():
     return prediction
 
 @app.route('/model')
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 def model():
     hash = request.args.get('hash')
     print({ "hash": hash })
     return send_file(os.path.join(root_dir, '../.tmp', hash + '.obj'), mimetype='model/obj')
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 if __name__ == "__main__":
     from waitress import serve

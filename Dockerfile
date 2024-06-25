@@ -28,7 +28,6 @@ RUN pip install keras==2.2.5
 RUN pip install flask
 RUN pip install waitress
 
-
 # others
 RUN pip install flask-cors
 RUN pip install flask-limiter
