@@ -1,5 +1,9 @@
 version: "3.8"
 
+networks:
+  web_app_default:
+    external: true
+
 services:
   web:
     image: 3d_human_body_shape:1
@@ -12,6 +16,28 @@ services:
       - ./src:/app/src
       - ./.tmp:/app/.tmp
       # - /usr/local/cuda/lib64/libcudart.so.12:/usr/local/cuda/lib64/libcudart.so.10.1
+    networks:
+      - default
+      - web_app_default
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=web_app_default"
+        # define Server-Port
+        - "traefik.http.services.${STACK_NAME}.loadbalancer.server.port=8080"
+        # define Middlewares
+        - "traefik.http.middlewares.to-https-${STACK_NAME}.redirectscheme.scheme=https"
+        - "traefik.http.middlewares.to-https-${STACK_NAME}.redirectscheme.permanent=true"
+        # Redirect "host" HTTP traffic to HTTPS
+        - "traefik.http.routers.http-${STACK_NAME}.entrypoints=http"
+        - "traefik.http.routers.http-${STACK_NAME}.rule=Host(`${DOMAIN}`)"
+        - "traefik.http.routers.http-${STACK_NAME}.middlewares=to-https-${STACK_NAME}"
+        # Handle HTTPS
+        - "traefik.http.routers.https-${STACK_NAME}.entrypoints=https"
+        - "traefik.http.routers.https-${STACK_NAME}.rule=Host(`${DOMAIN}`)"
+        - "traefik.http.routers.https-${STACK_NAME}.tls=true"
+        - "traefik.http.routers.https-${STACK_NAME}.tls.certresolver=letsencrypt"
     # environment:
     #   - NVIDIA_VISIBLE_DEVICES=all
     #   - CUDACXX=/usr/local/cuda/bin/nvcc
