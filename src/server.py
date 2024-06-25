@@ -19,8 +19,18 @@ from maya_widget import MayaviQWidget  # Adjusted import statement
 import utils  # Adjusted import statement
 import uuid
 
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
 from flask import Flask, request, jsonify, send_file
 app = Flask(__name__)
+
+# Configure Flask-Limiter
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["3 per day"]
+)
 
 viewer3D_MALE = MayaviQWidget("male")
 viewer3D_FEMALE = MayaviQWidget("female")
