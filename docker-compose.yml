@@ -1,5 +1,3 @@
-version: "3.8"
-
 networks:
   web_app_default:
     external: true
